@@ -2,14 +2,18 @@
 import { useMovieStore } from '@/stores/MovieStore';
 
 export default {
+    
     props: ["imdbID"],
+
     setup() {
+
         const movieStore = useMovieStore();
         movieStore.fetchMovieDetails("");
 
         return { movieStore }
     },
     watch: {
+
         imdbID: function () {
             const movieStore = useMovieStore();
             movieStore.fetchMovieDetails(this.imdbID);

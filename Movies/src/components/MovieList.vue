@@ -8,6 +8,7 @@ type range = {
 }
 
 export default {
+
     data() {
         return {
             text: "",
@@ -17,15 +18,22 @@ export default {
             maxVisibleButtons: 4
         };
     },
+
     setup() {
+
         const moviesSearchStore = useMovieSearchStore();
         moviesSearchStore.fetchMovieSearch("Undefined", 1);
+        
         return { moviesSearchStore };
     },
-    props: ["value"],
+
+    props:["value"],
+
     watch: {
+
         value: function () {
             if (this.value === "") {
+
                 const moviesSearchStore = useMovieSearchStore();
                 moviesSearchStore.fetchMovieSearch(" ", this.currentPage);
                 // console.log(Math.floor((moviesSearchStore.data.data.totalResults/10)+1))
@@ -33,6 +41,7 @@ export default {
                 // if (this.totalPages < 5 ){
                 //     this.maxVisibleButtons = this.totalPages
                 // }
+
                 return { moviesSearchStore };
             }
             else {
@@ -41,39 +50,50 @@ export default {
                 const moviesSearchStore = useMovieSearchStore();
                 moviesSearchStore.fetchMovieSearch(this.filmValue, this.currentPage);
                 // this.totalPages = Math.floor((moviesSearchStore.data.data.totalResults/10)+1)
+
                 return { moviesSearchStore };
             }
         }
     },
+
     methods: {
+
         displatValue(movieId: string) {
             document.getElementById("bottom")?.scrollIntoView({ behavior: "smooth" })
             this.text = movieId;
            
         },
         changePgae(number: number) {
+
             this.currentPage = number
             const moviesSearchStore = useMovieSearchStore();
             moviesSearchStore.fetchMovieSearch(this.filmValue, number);
+
             return { moviesSearchStore };
         },
         goToLastpage() {
+
             this.currentPage = this.totalPages;
             const moviesSearchStore = useMovieSearchStore();
             moviesSearchStore.fetchMovieSearch(this.filmValue, this.currentPage);
+
             return { moviesSearchStore };
         },
         goToFirstpage() {
+
             this.currentPage = 1;
             const moviesSearchStore = useMovieSearchStore();
             moviesSearchStore.fetchMovieSearch(this.filmValue, this.currentPage);
+
             return { moviesSearchStore };
         },
     },
 
     components: {
+
         MovieDetails
     },
+
     computed: {
         startPage() {
             if (this.currentPage === 1) {
