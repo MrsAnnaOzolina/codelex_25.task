@@ -1,9 +1,19 @@
-<script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+<script lang="ts">
+// import MovieList from '../components/MovieList.vue'
+import SearchBar from '@/components/SearchBar.vue';
+
+export default {
+  components: {
+    SearchBar,
+  }
+}
+
+
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+  
+  <SearchBar />
   </main>
 </template>

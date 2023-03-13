@@ -1,35 +1,111 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+body{
+  font-family: 'Work Sans', sans-serif;
 }
-
-a,
-.green {
+.header{
+  display: flex;
+  align-items: center;
+  background-color: rgb(208, 189, 189);
+  border-radius: 10px;
+}
+.header__logo{
+  width: 70px;
+  border-radius: 40px;
+  margin:5px;
+ 
+}
+.header__links{
+  display: inline-block;
+}
+a {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: black;
   transition: 0.4s;
+ margin: 10px;
+}
+.about{
+  display:grid;
+  justify-items: center;
+}
+.about__image{
+  max-width:15000px;
+}
+.about__text{
+  max-width: 400px;
+  border: 1px solid rgb(208, 189, 189);
+  border-radius: 10px;
+  padding: 30px;
+  background-color: rgb(208, 189, 189);
+  margin:30px; 
+}
+.search{
+display: grid;
+justify-content: center;
+gap: 30px;
+  margin: 50px;
+}
+.search__input{
+  height: 30px;
+}
+.button {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+  border-radius: 5px;
+  width: 300px;
+  height: 40px;
+
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.button:hover {background-color: #e7e7e7;}
+
+.movieList{
+margin: 30px;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+.movieList__card{
+  border: 1px solid rgb(208, 189, 189);
+  background-color: rgb(208, 189, 189);
+  margin:10px;
+  border-radius: 5px;
+  padding:10px;
+  display: flex;
+  justify-content: space-between;
+  /* display: grid;
+  grid-template-columns: repeat(2, 30vw);
+  gap: 40px; */
+}
+.movieList__button{
+  border: none;
+  background-color: rgb(116, 116, 200);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 30px;
+  margin-left: 10px;
+}
+.movieList__button:hover{
+background-color:rgb(94, 94, 196);
+}
+.movieList__pagination{
+  display: flex;
+  justify-content: center;
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+}
+.detailsCard{
+border:1px solid rgb(208, 189, 189);
+display: grid;
+justify-items: center;
+background-color: rgb(208, 189, 189);
+border-radius: 5px;
+padding: 20px;
+margin: 30px;
+}
+.detailsHeader{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.paginationButton{
+  border: none;
+  background-color: white;
 }
